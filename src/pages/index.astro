@@ -1,16 +1,40 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => b.data.created_at.getTime() - a.data.created_at.getTime());
+
+const formatDate = (date: Date) => {
+	return date.toLocaleDateString('zh-CN', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	});
+};
 ---
 
-<Layout>
-	<div class="flex items-center justify-center min-h-screen bg-slate-100">
-		<h1 class="text-4xl font-bold text-sky-500 animate-bounce">
-			Tailwind CSS v4 is working!
-		</h1>
-	</div>
-	<Welcome />
+<Layout title="Minimal Blog | Home">
+	<section class="space-y-12">
+		{sortedPosts.map(post => (
+			<article class="group">
+				<time class="text-sm text-slate-400 block mb-2">{formatDate(post.data.created_at)}</time>
+				<h2 class="text-2xl font-bold !mt-0 !mb-2">
+					<a href={`/blog/${post.slug}`} class="group-hover:text-slate-600">
+						{post.data.title}
+					</a>
+				</h2>
+				<p class="text-slate-500 line-clamp-2 !mb-0">
+					{post.data.description}
+				</p>
+				<div class="flex gap-2 mt-3">
+					{post.data.tags.map((tag: string) => (
+						<span class="text-xs px-2 py-1 bg-slate-50 text-slate-500 rounded">
+							#{tag}
+						</span>
+					))}
+				</div>
+			</article>
+		))}
+	</section>
 </Layout>
