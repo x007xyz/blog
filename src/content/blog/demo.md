@@ -21,6 +21,6 @@ tags: ["随笔", "Astro", "极简"]
 ```javascript
 console.log("Hello, World!");
 ```
-
+BlockNote
 感谢阅读！
 

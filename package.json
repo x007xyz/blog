@@ -9,8 +9,17 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@blocknote/core": "^0.45.0",
+    "@blocknote/mantine": "^0.45.0",
+    "@blocknote/react": "^0.45.0",
     "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "astro": "^5.16.6",
+    "gray-matter": "^4.0.3",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "tailwindcss": "^4.1.18"
   }
 }

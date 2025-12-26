@@ -33,7 +33,7 @@ const { title = "极简博客", description = "我的个人博客" } = Astro.pro
 				<slot />
 			</main>
 
-			<footer class="mt-20 pt-8 border-t border-slate-100 text-sm text-slate-400">
+			<footer class="mt-32 pt-12 border-t border-gray-50 text-[10px] tracking-[0.2em] uppercase text-gray-300">
 				<p>© {new Date().getFullYear()} Minimal Blog. Built with Astro.</p>
 			</footer>
 		</div>
@@ -67,15 +67,15 @@ const { title = "极简博客", description = "我的个人博客" } = Astro.pro
 	a { @apply transition-colors; }
 
 	pre {
-		@apply p-4 rounded-lg bg-slate-50 overflow-x-auto text-sm my-6;
+		@apply p-6 rounded-2xl bg-gray-50/50 overflow-x-auto text-sm my-8 border border-gray-100 shadow-sm;
 	}
 	
 	code {
-		@apply font-mono px-1 py-0.5 bg-slate-50 rounded text-sm;
+		@apply font-mono px-1.5 py-0.5 bg-gray-100/50 rounded-md text-[0.9em] text-slate-800;
 	}
 	
 	pre code {
-		@apply p-0 bg-transparent;
+		@apply p-0 bg-transparent text-inherit;
 	}
 
 	ul { @apply list-disc list-inside mb-4; }

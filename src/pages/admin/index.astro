@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import AdminDashboard from '../../components/Admin/AdminDashboard';
+
+// 生产环境拦截
+if (import.meta.env.PROD) return Astro.redirect('/');
+
+const posts = await getCollection('blog');
+// 转换为普通的 JSON 对象以便传递给 React
+const serializedPosts = posts.map(post => ({
+  id: post.id.replace(/\.md$/, ''),
+  slug: post.id.replace(/\.md$/, ''),
+  data: {
+    title: post.data.title,
+    description: post.data.description,
+    created_at: post.data.created_at.toISOString(),
+    tags: post.data.tags
+  }
+})).sort((a, b) => new Date(b.data.created_at).getTime() - new Date(a.data.created_at).getTime());
+---
+
+<Layout title="管理后台">
+  <div class="fixed inset-0 z-[100] bg-white">
+    <AdminDashboard client:only="react" initialPosts={serializedPosts} />
+  </div>
+</Layout>
+
+<style is:global>
+  /* 强制全屏隐藏滚动条 */
+  body {
+    overflow: hidden;
+  }
+</style>

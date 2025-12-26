@@ -1,2 +1,65 @@
 @import "tailwindcss";
 
+/* BlockNote Editor Custom Styles */
+.editor-wrapper {
+  --bn-colors-editor-background: transparent;
+}
+
+.bn-container[data-theme="light"] {
+  --bn-colors-editor-text: #1a1a1a;
+  --bn-border-radius: 12px;
+}
+
+/* 修复 Code 模块渲染问题 */
+.bn-block-content[data-content-type="codeBlock"] {
+  background: #f8f9fa !important;
+  border: 1px solid #eee !important;
+  border-radius: 12px !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.bn-block-content[data-content-type="codeBlock"] pre {
+  margin: 0 !important;
+  padding: 1.5rem !important;
+  background: transparent !important;
+  border: none !important;
+  font-family: "Fira Code", "Cascadia Code", "Source Code Pro", monospace !important;
+  font-size: 0.875rem !important;
+  line-height: 1.6 !important;
+}
+
+.bn-block-content[data-content-type="codeBlock"] code {
+  background: transparent !important;
+  padding: 0 !important;
+  color: #333 !important;
+}
+
+/* 隐藏 BlockNote 原生的一些奇怪边框 */
+.bn-editor {
+  padding-inline: 0 !important;
+}
+
+.bn-visual-cursor {
+  background-color: #000 !important;
+}
+
+/* 侧边栏滚动条美化 */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
+
