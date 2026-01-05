@@ -7,12 +7,12 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 const esaConfigPath = path.join(rootDir, 'esa.jsonc');
-const astroAssetsDir = path.join(rootDir, 'dist', '_astro');
+const astroAssetsDir = path.join(rootDir, 'dist', 'assets');
 
 try {
-  // 查找 dist/_astro 目录中的 client.*.js 文件
+  // 查找 dist/assets 目录中的 client.*.js 文件
   if (!fs.existsSync(astroAssetsDir)) {
-    console.warn('警告: dist/_astro 目录不存在，跳过 ESA 配置更新');
+    console.warn('警告: dist/assets 目录不存在，跳过 ESA 配置更新');
     process.exit(0);
   }
 
@@ -24,7 +24,7 @@ try {
     process.exit(0);
   }
 
-  const functionJsPath = `dist/_astro/${clientJsFile}`;
+  const functionJsPath = `dist/assets/${clientJsFile}`;
 
   // 读取现有的 esa.jsonc 文件
   if (!fs.existsSync(esaConfigPath)) {

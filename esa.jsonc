@@ -1,11 +1,11 @@
 {
   // Assets 目录路径（相对于项目根目录）
-  // 包含所有构建产物，包括 _astro 目录中的 JS、CSS 文件和其他静态资源
-  "assetsDirectory": "dist",
+  // 包含所有构建产物，包括 assets 目录中的 JS、CSS 文件和其他静态资源
+  "assetsDirectory": "dist/assets",
   
   // Function JS 文件路径（对于静态站点，指向主要的客户端入口文件）
   // 注意：Astro 构建的文件名包含哈希，每次构建可能不同
-  // 如果部署时出错，请在构建后检查 dist/_astro/ 目录中的 client.*.js 文件并更新此路径
-  "functionJsFile": "dist/_astro/client.Dp8MyVfz.js"
+  // 如果部署时出错，请在构建后检查 dist/assets/ 目录中的 client.*.js 文件并更新此路径
+  "functionJsFile": "dist/assets/client.Dp8MyVfz.js"
 }
 
