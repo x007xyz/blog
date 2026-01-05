@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# 临时开发路由目录（构建时使用）
+.temp-dev-routes/
