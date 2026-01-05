@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "prebuild": "node scripts/exclude-dev-routes.js",
     "build": "astro build",
-    "postbuild": "node scripts/restore-dev-routes.js && node scripts/update-esa-config.js",
+    "postbuild": "node scripts/restore-dev-routes.js",
     "preview": "astro preview",
     "astro": "astro"
   },
